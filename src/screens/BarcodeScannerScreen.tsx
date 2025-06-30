@@ -6,6 +6,9 @@ import { addToHistory } from '../utils/history';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
+import { UnhealthyFoodItem } from '../types/UnhealthyFoodItem';
+import unhealthyFoodData from '../assets/unhealthyFood.json';
+const unhealthyFood = unhealthyFoodData as UnhealthyFoodItem[];
 
 type RootStackParamList = {
   Producto: { code: string };
@@ -41,6 +44,12 @@ export default function BarcodeScannerScreen() {
       await addToHistory(result, data);
       navigation.navigate('Producto', { code: data });
     } else {
+      const product = unhealthyFood.find((p) => p.code === data);
+
+      if (product) {
+        await addToHistory(product, data);
+        navigation.navigate('Producto', { code: data });
+      }
       setScanned(true);
 
       Alert.alert(

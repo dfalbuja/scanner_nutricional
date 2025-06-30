@@ -11,6 +11,7 @@ import { getHistory } from '../utils/history';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
+import imageMap from '../assets/imageMap';
 
 export default function HistorialScreen() {
   const [history, setHistory] = useState<any[]>([]);
@@ -32,9 +33,12 @@ export default function HistorialScreen() {
       onPress={() => navigation.navigate('Producto', { code: item.code })}
     >
       <View style={styles.item}>
-        {item.image_url && (
+        {item.image_url ? (
           <Image source={{ uri: item.image_url }} style={styles.image} />
-        )}
+        ) : item.code && imageMap[item.code] ? (
+          <Image source={imageMap[item.code]} style={styles.image} />
+        ) : null}
+
         <View style={styles.info}>
           <Text style={styles.name}>{item.product_name || 'Sin nombre'}</Text>
           <Text style={styles.brand}>{item.brands || 'Marca desconocida'}</Text>
