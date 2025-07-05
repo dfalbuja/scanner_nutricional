@@ -103,13 +103,19 @@ export default function ProductoScreen() {
       <View style={styles.cardHealthy}>
         <Text style={styles.subtitle}>Opción saludable: Zanahorias</Text>
 
-        {product.image_url && (
+        {product.image_url ? (
           <Image
             source={{ uri: product.image_url }}
             style={styles.productImage}
             resizeMode="contain"
           />
-        )}
+        ) : product.code && imageMap[product.code] ? (
+          <Image
+            source={imageMap[product.code]}
+            style={styles.productImage}
+            resizeMode="contain"
+          />
+        ) : null}
 
         <View style={styles.table}>
           <View style={styles.headerRow}>

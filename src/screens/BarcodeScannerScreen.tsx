@@ -49,20 +49,21 @@ export default function BarcodeScannerScreen() {
       if (product) {
         await addToHistory(product, data);
         navigation.navigate('Producto', { code: data });
-      }
-      setScanned(true);
+      } else {
+        setScanned(true);
 
-      Alert.alert(
-        'Producto no encontrado',
-        'El producto no se encuentra en Open Food Facts',
-        [
-          {
-            text: 'Aceptar',
-            onPress: () => setScanned(false),
-          },
-        ],
-        { cancelable: false } // importante para evitar que se cierre tocando fuera
-      );
+        Alert.alert(
+          'Producto no encontrado',
+          'El producto no se encuentra en Open Food Facts',
+          [
+            {
+              text: 'Aceptar',
+              onPress: () => setScanned(false),
+            },
+          ],
+          { cancelable: false } // importante para evitar que se cierre tocando fuera
+        );
+      }
     }
   };
 

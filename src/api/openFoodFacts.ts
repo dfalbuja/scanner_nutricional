@@ -12,11 +12,14 @@ export async function fetchProductByBarcode(barcode: string) {
     );
 
     console.log('PRODUCT STATUS::::::', response.data.status);
-    // console.log('PRODUCT STATUS::::::', response.data.product.nutriments);
 
     if (response.data.status === 1) return response.data.product;
     else return null;
-  } catch (error) {
+  } catch (error: any) {
+    if (error.response && error.response.status === 404) {
+      // Producto no encontrado
+      return null;
+    }
     console.error('Error al consultar Open Food Facts:', error);
     return null;
   }
