@@ -4,9 +4,13 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { fetchProductByBarcode } from '../api/openFoodFacts';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import imageMap from '../assets/imageMap';
+import healthySuggestionMap from '../assets/healthySuggestionMap';
 import { UnhealthyFoodItem } from '../types/UnhealthyFoodItem';
 import unhealthyFoodData from '../assets/unhealthyFood.json';
+import healthyFoodData from '../assets/healthyFood.json';
+
 const unhealthyFood = unhealthyFoodData as UnhealthyFoodItem[];
+const healthyFood = healthyFoodData as any[];
 
 type RootStackParamList = {
   Producto: { code: string };
@@ -40,6 +44,17 @@ export default function ProductoScreen() {
   }
 
   const nutriments = product.nutriments || {};
+
+  const healthyCode = healthySuggestionMap[code];
+  const healthySuggestion = healthyFood.find((p) => p.code === healthyCode);
+  console.log(
+    'Escaneado:',
+    code,
+    'Sugerido:',
+    healthyCode,
+    'Producto saludable:',
+    healthySuggestion
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -101,17 +116,24 @@ export default function ProductoScreen() {
       </View>
 
       <View style={styles.cardHealthy}>
-        <Text style={styles.subtitle}>Opción saludable: Zanahorias</Text>
+        <Text style={styles.subtitle}>
+          Opción saludable:{' '}
+          {healthySuggestion
+            ? healthySuggestion.product_name
+            : 'No se encontró una opción'}
+        </Text>
 
-        {product.image_url ? (
+        {healthySuggestion && healthySuggestion.image_url ? (
           <Image
-            source={{ uri: product.image_url }}
+            source={{ uri: healthySuggestion.image_url }}
             style={styles.productImage}
             resizeMode="contain"
           />
-        ) : product.code && imageMap[product.code] ? (
+        ) : healthySuggestion &&
+          healthySuggestion.code &&
+          imageMap[healthySuggestion.code] ? (
           <Image
-            source={imageMap[product.code]}
+            source={imageMap[healthySuggestion.code]}
             style={styles.productImage}
             resizeMode="contain"
           />
@@ -127,20 +149,50 @@ export default function ProductoScreen() {
             </Text>
           </View>
 
-          {[
-            [
-              'Energía (Calorías)',
-              nutriments['energy_100g'] + ' kJ',
-              '(' + nutriments['energy-kcal_100g'] + ' kcal)',
-            ],
-            ['Grasa', nutriments['fat_100g'], 'g'],
-            ['Grasa Saturada', nutriments['saturated-fat_100g'], 'g'],
-            ['Carbohidratos', nutriments['carbohydrates_100g'], 'g'],
-            ['Azúcares', nutriments['sugars_100g'], 'g'],
-            ['Fibra', nutriments['fiber_100g'], 'g'],
-            ['Proteínas', nutriments['proteins_100g'], 'g'],
-            ['Sal', nutriments['salt_100g'], 'g'],
-          ].map(([label, value, unit], idx) => (
+          {(healthySuggestion
+            ? [
+                [
+                  'Energía (Calorías)',
+                  healthySuggestion.nutriments['energy_100g'] + ' kJ',
+                  '(' +
+                    healthySuggestion.nutriments['energy-kcal_100g'] +
+                    ' kcal)',
+                ],
+                ['Grasa', healthySuggestion.nutriments['fat_100g'], 'g'],
+                [
+                  'Grasa Saturada',
+                  healthySuggestion.nutriments['saturated-fat_100g'],
+                  'g',
+                ],
+                [
+                  'Carbohidratos',
+                  healthySuggestion.nutriments['carbohydrates_100g'],
+                  'g',
+                ],
+                ['Azúcares', healthySuggestion.nutriments['sugars_100g'], 'g'],
+                ['Fibra', healthySuggestion.nutriments['fiber_100g'], 'g'],
+                [
+                  'Proteínas',
+                  healthySuggestion.nutriments['proteins_100g'],
+                  'g',
+                ],
+                ['Sal', healthySuggestion.nutriments['salt_100g'], 'g'],
+              ]
+            : [
+                [
+                  'Energía (Calorías)',
+                  nutriments['energy_100g'] + ' kJ',
+                  '(' + nutriments['energy-kcal_100g'] + ' kcal)',
+                ],
+                ['Grasa', nutriments['fat_100g'], 'g'],
+                ['Grasa Saturada', nutriments['saturated-fat_100g'], 'g'],
+                ['Carbohidratos', nutriments['carbohydrates_100g'], 'g'],
+                ['Azúcares', nutriments['sugars_100g'], 'g'],
+                ['Fibra', nutriments['fiber_100g'], 'g'],
+                ['Proteínas', nutriments['proteins_100g'], 'g'],
+                ['Sal', nutriments['salt_100g'], 'g'],
+              ]
+          ).map(([label, value, unit], idx) => (
             <View style={styles.row} key={`suggestion-${idx}`}>
               <Text style={[styles.cell, { flex: 1.5 }]}>{label}</Text>
               <Text style={[styles.cell, { flex: 1 }]}>
@@ -179,7 +231,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   title: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: 'bold',
     marginBottom: 5,
     marginTop: 0,
@@ -195,7 +247,7 @@ const styles = StyleSheet.create({
   },
   productImage: {
     width: 135,
-    height: 135,
+    height: 130,
     alignSelf: 'center',
     marginBottom: 5,
     borderRadius: 8,
