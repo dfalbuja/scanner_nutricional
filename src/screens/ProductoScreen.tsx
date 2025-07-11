@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { fetchProductByBarcode } from '../api/openFoodFacts';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { TouchableOpacity, Modal, Pressable } from 'react-native'; // Agrega estas importaciones
 import imageMap from '../assets/imageMap';
 import healthySuggestionMap from '../assets/healthySuggestionMap';
 import { UnhealthyFoodItem } from '../types/UnhealthyFoodItem';
@@ -23,6 +24,7 @@ export default function ProductoScreen() {
   const { code } = params;
 
   const [product, setProduct] = useState<any | null>(null);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const loadProduct = async () => {
@@ -116,13 +118,81 @@ export default function ProductoScreen() {
       </View>
 
       <View style={styles.cardHealthy}>
-        <Text style={styles.subtitle}>
-          Opción saludable:{' '}
-          {healthySuggestion
-            ? healthySuggestion.product_name
-            : 'No se encontró una opción'}
-        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: 5,
+          }}
+        >
+          <Text style={styles.subtitle}>
+            Opción:{' '}
+            {healthySuggestion
+              ? healthySuggestion.product_name
+              : 'No se encontró una opción'}
+          </Text>
+          {healthySuggestion && healthySuggestion.comment ? (
+            <TouchableOpacity
+              onPress={() => setModalVisible(true)}
+              style={{ marginLeft: 0 }}
+            >
+              <Text
+                style={{ color: '#2196F3', fontWeight: 'bold', fontSize: 30 }}
+              >
+                ⓘ
+              </Text>
+            </TouchableOpacity>
+          ) : null}
+        </View>
+        {/* Modal para mostrar el comentario */}
+        <Modal
+          visible={modalVisible}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: 'rgba(0,0,0,0.3)',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: 'white',
+                padding: 20,
+                borderRadius: 10,
+                maxWidth: '80%',
+                alignItems: 'center',
+              }}
+            >
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>
+                Comentario
+              </Text>
+              <Text style={{ marginBottom: 20, textAlign: 'center' }}>
+                {healthySuggestion?.comment}
+              </Text>
+              <Pressable
+                style={{
+                  backgroundColor: '#2196F3',
+                  borderRadius: 5,
+                  paddingVertical: 8,
+                  paddingHorizontal: 20,
+                }}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={{ color: 'white', fontWeight: 'bold' }}>
+                  Cerrar
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
 
+        {/* ...resto del código de la opción saludable... */}
         {healthySuggestion && healthySuggestion.image_url ? (
           <Image
             source={{ uri: healthySuggestion.image_url }}

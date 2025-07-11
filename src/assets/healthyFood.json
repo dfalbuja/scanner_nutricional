@@ -13,11 +13,12 @@
       "fiber_100g": "0",
       "proteins_100g": "2.1",
       "salt_100g": "0.12"
-    }
+    },
+    "comment": "La versión Finesse es una alternativa más saludable, con solo 73 kcal, sin grasas y con solo 5 g de azúcar, manteniendo el mismo aporte de proteínas. No contiene azúcares añadidos, y aunque sigue siendo un alimento procesado con edulcorantes, su perfil nutricional es más equilibrado y adecuado para quienes buscan reducir el consumo de azúcar sin dejar de disfrutar un snack dulce."
   },
   {
     "code": "7861025805901",
-    "product_name": "Chivería Sin Lactosa ",
+    "product_name": "Chivería 0% grasa y 0% azúcar",
     "image_url": "",
     "nutriments": {
       "energy_100g": "162",
@@ -29,6 +30,126 @@
       "fiber_100g": "0",
       "proteins_100g": "3.9",
       "salt_100g": "0.11"
-    }
+    },
+    "comment": "Chivería 0% grasa y 0% azúcar representan una alternativa más saludable: no contienen azúcares añadidos ni grasa, su contenido calórico es mucho menor y mantienen un buen aporte de proteínas. Aunque siguen siendo productos procesados, su perfil nutricional es más equilibrado y adecuado para reducir el consumo de azúcar sin dejar de disfrutar un alimento práctico y refrescante."
+  },
+  {
+    "code": "7862726492720",
+    "product_name": "Kaarú Griego",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "388",
+      "energy-kcal_100g": "93",
+      "fat_100g": "2.1",
+      "saturated-fat_100g": "1.4",
+      "carbohydrates_100g": "9.3",
+      "sugars_100g": "5",
+      "fiber_100g": "0",
+      "proteins_100g": "8.6",
+      "salt_100g": "0.11"
+    },
+    "comment": "Yogurt griego Kaarú es una alternativa más saludable, con alto contenido proteico (10-15 g), 0% azúcar añadida y, en su versión natural, bajo en grasa o sin grasa. Esta diferencia lo hace ideal para personas que buscan mejorar su composición corporal, controlar su glucosa o seguir una alimentación más balanceada. Aunque el yogurt griego puede tener un sabor menos dulce, su perfil nutricional es superior y más saciante, lo que lo convierte en una excelente opción para desayunos o snacks saludables."
+  },
+  {
+    "code": "7862726492522",
+    "product_name": "Kaarú Kids Yogurt Griego",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "403",
+      "energy-kcal_100g": "96",
+      "fat_100g": "3",
+      "saturated-fat_100g": "2.1",
+      "carbohydrates_100g": "10",
+      "sugars_100g": "6.8",
+      "fiber_100g": "0",
+      "proteins_100g": "8.2",
+      "salt_100g": "0.10"
+    },
+    "comment": "En cambio, el yogurt griego para niños de Kaarú está formulado como una opción más saludable: sin azúcares añadidos, con 0% grasa y un alto contenido de proteínas (hasta 10 g) por porción. Además, su perfil nutricional está diseñado para aportar saciedad y apoyar el crecimiento, sin recurrir al exceso de azúcar. Aunque puede tener un sabor menos dulce, es una mejor opción para promover hábitos alimenticios saludables desde la infancia, especialmente si se acompaña con fruta natural o cereales integrales."
+  },
+  {
+    "code": "0000000000000",
+    "product_name": "Gullón Zero Sin Azúcares - Twins Sándwich de Cacao con Crema",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1995",
+      "energy-kcal_100g": "476",
+      "fat_100g": "19",
+      "saturated-fat_100g": "4.76",
+      "carbohydrates_100g": "66.6",
+      "sugars_100g": "0",
+      "fiber_100g": "9.5",
+      "proteins_100g": "9.5",
+      "salt_100g": "0.95"
+    },
+    "comment": "No contienen azúcares añadidos, tienen mayor contenido de fibra y utilizan aceites más saludables como el de girasol alto oleico. Aunque siguen siendo un alimento procesado con edulcorantes, su perfil nutricional es más equilibrado y adecuado para reducir el consumo de azúcar sin dejar de disfrutar un snack dulce."
+  },
+  {
+    "code": "0000000000001",
+    "product_name": "Gullón Zero Sin Azúcares - Barquillos de Vainilla",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1934",
+      "energy-kcal_100g": "461",
+      "fat_100g": "23",
+      "saturated-fat_100g": "11.5",
+      "carbohydrates_100g": "50",
+      "sugars_100g": "0",
+      "fiber_100g": "11.5",
+      "proteins_100g": "3.8",
+      "salt_100g": "0.14"
+    },
+    "comment": "Estas galletas no poseen de azúcares añadidos y su mayor contenido de fibra (alrededor de 10 g por cada 100 g), lo que favorece una mejor digestión y un menor impacto glicémico."
+  },
+  {
+    "code": "0000000000002",
+    "product_name": "Siluet Galletas Integrales",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "544",
+      "energy-kcal_100g": "130",
+      "fat_100g": "4",
+      "saturated-fat_100g": "2",
+      "carbohydrates_100g": "21",
+      "sugars_100g": "1",
+      "fiber_100g": "2",
+      "proteins_100g": "2",
+      "salt_100g": "0.33"
+    },
+    "comment": "Las alternativas integrales y de arroz inflado ofrecen menos calorías, sin azúcares extra y más fibra, lo que las convierte en una mejor opción para un snack diario."
+  },
+  {
+    "code": "0000000000003",
+    "product_name": "Siluet Galletas Integrales con Manzana",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "502",
+      "energy-kcal_100g": "120",
+      "fat_100g": "3",
+      "saturated-fat_100g": "2",
+      "carbohydrates_100g": "22",
+      "sugars_100g": "2",
+      "fiber_100g": "1",
+      "proteins_100g": "2",
+      "salt_100g": "0.305"
+    },
+    "comment": "Las alternativas integrales y de arroz inflado ofrecen menos calorías, sin azúcares extra y más fibra, lo que las convierte en una mejor opción para un snack diario."
+  },
+  {
+    "code": "7862129010314",
+    "product_name": "Dr. Müller Galletas de Arroz Inflado Manzana y Canela",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1260",
+      "energy-kcal_100g": "300",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "80",
+      "sugars_100g": "20",
+      "fiber_100g": "0",
+      "proteins_100g": "0",
+      "salt_100g": "0"
+    },
+    "comment": "Las alternativas integrales y de arroz inflado ofrecen menos calorías, sin azúcares extra y más fibra, lo que las convierte en una mejor opción para un snack diario."
   }
 ]
