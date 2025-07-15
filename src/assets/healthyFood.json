@@ -151,5 +151,73 @@
       "salt_100g": "0"
     },
     "comment": "Las alternativas integrales y de arroz inflado ofrecen menos calorías, sin azúcares extra y más fibra, lo que las convierte en una mejor opción para un snack diario."
+  },
+  {
+    "code": "7702189048202",
+    "product_name": "Quaker Galleta con Avena y Granola",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "545",
+      "energy-kcal_100g": "130",
+      "fat_100g": "5",
+      "saturated-fat_100g": "1.5",
+      "carbohydrates_100g": "19",
+      "sugars_100g": "4",
+      "fiber_100g": "3",
+      "proteins_100g": "3",
+      "salt_100g": "0.089"
+    },
+    "comment": "Posee un menor contenido de azúcares simples, riqueza en fibra y grasas más equilibradas, con ingredientes integrales y frutos secos. Esto la convierte en una opción más saciante, con menor carga de azúcares simples y un índice glicémico menor."
+  },
+  {
+    "code": "8412170027107",
+    "product_name": "Santiveri Galletas Integrales de Avena",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1844",
+      "energy-kcal_100g": "444",
+      "fat_100g": "16.6",
+      "saturated-fat_100g": "5.5",
+      "carbohydrates_100g": "66.6",
+      "sugars_100g": "0",
+      "fiber_100g": "11.1",
+      "proteins_100g": "5.5",
+      "salt_100g": "0"
+    },
+    "comment": "Las galletas elaboradas con harinas integrales, contienen fibra (5 g por 100 g), grasas saludables y no incluyen azúcares refinados siendo un snack más equilibrado y nutritivo."
+  },
+  {
+    "code": "0000000000004",
+    "product_name": "Gullón Ligera Sin Sal Sin Azúcares",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1536",
+      "energy-kcal_100g": "366",
+      "fat_100g": "13.3",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "53.3",
+      "sugars_100g": "16.6",
+      "fiber_100g": "16.6",
+      "proteins_100g": "0",
+      "salt_100g": "0.13"
+    },
+    "comment": "Estas galletas están elaboradas con harina integral de trigo, semillas de sésamo y lino, y aceite de girasol alto oleico, lo que les confiere un perfil nutricional superior."
+  },
+  {
+    "code": "7622210873002",
+    "product_name": "Club Social Integral Multicereales (Amaranto, Quinua, Chía)",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "610",
+      "energy-kcal_100g": "145",
+      "fat_100g": "16.667",
+      "saturated-fat_100g": "4.167",
+      "carbohydrates_100g": "66.667",
+      "sugars_100g": "8.333",
+      "fiber_100g": "4.167",
+      "proteins_100g": "8.333",
+      "salt_100g": "0.938"
+    },
+    "comment": "Aunque ambas opciones son ricas en carbohidratos y grasas, las Club Social Integral contienen más fibra, se recomienda consumirlas con moderación."
   }
 ]
