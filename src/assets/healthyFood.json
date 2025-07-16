@@ -102,7 +102,7 @@
     "comment": "Estas galletas no poseen de azúcares añadidos y su mayor contenido de fibra (alrededor de 10 g por cada 100 g), lo que favorece una mejor digestión y un menor impacto glicémico."
   },
   {
-    "code": "0000000000002",
+    "code": "7861004911036",
     "product_name": "Siluet Galletas Integrales",
     "image_url": "",
     "nutriments": {
@@ -119,7 +119,7 @@
     "comment": "Las alternativas integrales y de arroz inflado ofrecen menos calorías, sin azúcares extra y más fibra, lo que las convierte en una mejor opción para un snack diario."
   },
   {
-    "code": "0000000000003",
+    "code": "7861004911203",
     "product_name": "Siluet Galletas Integrales con Manzana",
     "image_url": "",
     "nutriments": {
@@ -205,7 +205,7 @@
   },
   {
     "code": "7622210873002",
-    "product_name": "Club Social Integral Multicereales (Amaranto, Quinua, Chía)",
+    "product_name": "Club Social Integral Multicereales",
     "image_url": "",
     "nutriments": {
       "energy_100g": "610",
@@ -219,5 +219,73 @@
       "salt_100g": "0.938"
     },
     "comment": "Aunque ambas opciones son ricas en carbohidratos y grasas, las Club Social Integral contienen más fibra, se recomienda consumirlas con moderación."
+  },
+  {
+    "code": "7862100720010",
+    "product_name": "Splendor Agua",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "0",
+      "energy-kcal_100g": "0",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "0",
+      "sugars_100g": "0",
+      "fiber_100g": "0",
+      "proteins_100g": "0",
+      "salt_100g": "0"
+    },
+    "comment": "La Coca-Cola contiene 10,6 g de azúcar por cada 100 ml. La opción sugerida no tiene azúcares añadidos ni calorías, lo que la hace ideal para reducir la ingesta de azúcares simples y evitar picos glucémicos."
+  },
+  {
+    "code": "7861024621465",
+    "product_name": "Powerade",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "251",
+      "energy-kcal_100g": "60",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "15",
+      "sugars_100g": "15",
+      "fiber_100g": "0",
+      "proteins_100g": "0",
+      "salt_100g": "0"
+    },
+    "comment": "Sprite tiene 8,6 g de azúcar por 100 ml. San Luis saborizada sin azúcar es una opción refrescante que ayuda a mantener la hidratación sin aportar calorías vacías."
+  },
+  {
+    "code": "8410132026382",
+    "product_name": "Artiu Xixona Chocolate Extrafino Negro 52% Cacao",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1861",
+      "energy-kcal_100g": "445",
+      "fat_100g": "32",
+      "saturated-fat_100g": "19",
+      "carbohydrates_100g": "29",
+      "sugars_100g": "0.5",
+      "fiber_100g": "27",
+      "proteins_100g": "6.2",
+      "salt_100g": "0.01"
+    },
+    "comment": "Esta alternativa es ideal para personas que buscan controlar su ingesta de azúcar, como diabéticos o quienes siguen una alimentación baja en carbohidratos simples. Al eliminar los azúcares añadidos, se reduce el riesgo de picos glucémicos. Puede contener edulcorantes, por lo que también se debe moderar su consumo."
+  },
+  {
+    "code": "0000000000005",
+    "product_name": "Kinú Gelatina Sin Azúcar Sabor a Mora",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1615",
+      "energy-kcal_100g": "384",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "0",
+      "sugars_100g": "0",
+      "fiber_100g": "0",
+      "proteins_100g": "76.9",
+      "salt_100g": "5.76"
+    },
+    "comment": "Productos bajos en calorías y sin azúcares simples, adecuados para postres en dietas hipocalóricas o para personas con diabetes. Aunque no aportan nutrientes esenciales, pueden ser parte de una alimentación balanceada si se consumen con moderación."
   }
 ]

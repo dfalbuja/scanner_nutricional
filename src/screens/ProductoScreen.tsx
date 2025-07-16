@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { fetchProductByBarcode } from '../api/openFoodFacts';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TouchableOpacity, Modal, Pressable } from 'react-native'; // Agrega estas importaciones
+import { TouchableOpacity, Modal, Pressable } from 'react-native';
 import imageMap from '../assets/imageMap';
 import healthySuggestionMap from '../assets/healthySuggestionMap';
 import { UnhealthyFoodItem } from '../types/UnhealthyFoodItem';
@@ -49,20 +49,14 @@ export default function ProductoScreen() {
 
   const healthyCode = healthySuggestionMap[code];
   const healthySuggestion = healthyFood.find((p) => p.code === healthyCode);
-  console.log(
-    'Escaneado:',
-    code,
-    'Sugerido:',
-    healthyCode,
-    'Producto saludable:',
-    healthySuggestion
-  );
+  const healthyNutriments = healthySuggestion?.nutriments || {};
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.cardUnhealthy}>
+        <Text style={styles.title}>PRODUCTO</Text>
         <Text style={styles.title}>
-          Producto escaneado: {product.product_name || 'Desconocido'}
+          {product.product_name || 'Desconocido'}
         </Text>
 
         {product.image_url ? (
@@ -92,8 +86,11 @@ export default function ProductoScreen() {
           {[
             [
               'Energía (Calorías)',
-              nutriments['energy_100g'] + ' kJ',
-              '(' + nutriments['energy-kcal_100g'] + ' kcal)',
+              {
+                kj: nutriments['energy_100g'],
+                kcal: nutriments['energy-kcal_100g'],
+              },
+              null,
             ],
             ['Grasa', nutriments['fat_100g'], 'g'],
             ['Grasa Saturada', nutriments['saturated-fat_100g'], 'g'],
@@ -106,9 +103,16 @@ export default function ProductoScreen() {
             <View style={styles.row} key={idx}>
               <Text style={[styles.cell, { flex: 1.5 }]}>{label}</Text>
               <Text style={[styles.cell, { flex: 1 }]}>
-                {value !== null &&
-                value !== undefined &&
-                String(value).trim() !== ''
+                {label === 'Energía (Calorías)'
+                  ? value &&
+                    value.kj !== undefined &&
+                    value.kj !== null &&
+                    String(value.kj).trim() !== ''
+                    ? `${value.kj} kJ (${value.kcal ?? '-'} kcal)`
+                    : '-'
+                  : value !== null &&
+                    value !== undefined &&
+                    String(value).trim() !== ''
                   ? `${value} ${unit}`
                   : '-'}
               </Text>
@@ -118,33 +122,13 @@ export default function ProductoScreen() {
       </View>
 
       <View style={styles.cardHealthy}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: 5,
-          }}
-        >
-          <Text style={styles.subtitle}>
-            Opción:{' '}
-            {healthySuggestion
-              ? healthySuggestion.product_name
-              : 'No se encontró una opción'}
-          </Text>
-          {healthySuggestion && healthySuggestion.comment ? (
-            <TouchableOpacity
-              onPress={() => setModalVisible(true)}
-              style={{ marginLeft: 0 }}
-            >
-              <Text
-                style={{ color: '#2196F3', fontWeight: 'bold', fontSize: 30 }}
-              >
-                ⓘ
-              </Text>
-            </TouchableOpacity>
-          ) : null}
-        </View>
+        <Text style={styles.subtitle}>OPCIÓN: </Text>
+        <Text style={styles.subtitle}>
+          {healthySuggestion
+            ? healthySuggestion.product_name
+            : 'No se encontró una opción'}
+        </Text>
+
         {/* Modal para mostrar el comentario */}
         <Modal
           visible={modalVisible}
@@ -193,20 +177,53 @@ export default function ProductoScreen() {
         </Modal>
 
         {/* ...resto del código de la opción saludable... */}
-        {healthySuggestion && healthySuggestion.image_url ? (
-          <Image
-            source={{ uri: healthySuggestion.image_url }}
-            style={styles.productImage}
-            resizeMode="contain"
-          />
-        ) : healthySuggestion &&
-          healthySuggestion.code &&
-          imageMap[healthySuggestion.code] ? (
-          <Image
-            source={imageMap[healthySuggestion.code]}
-            style={styles.productImage}
-            resizeMode="contain"
-          />
+        {healthySuggestion ? (
+          <View
+            style={{
+              marginBottom: 5,
+              position: 'relative',
+              alignItems: 'center',
+            }}
+          >
+            {/* Imagen */}
+            {healthySuggestion.image_url ? (
+              <Image
+                source={{ uri: healthySuggestion.image_url }}
+                style={styles.productImage}
+                resizeMode="contain"
+              />
+            ) : healthySuggestion.code && imageMap[healthySuggestion.code] ? (
+              <Image
+                source={imageMap[healthySuggestion.code]}
+                style={styles.productImage}
+                resizeMode="contain"
+              />
+            ) : null}
+
+            {/* Ícono */}
+            {healthySuggestion.comment ? (
+              <TouchableOpacity
+                onPress={() => setModalVisible(true)}
+                style={{
+                  position: 'absolute',
+                  right: 20,
+                  top: '50%',
+                  marginTop: -17, // Centrar verticalmente aprox.
+                  padding: 5,
+                }}
+              >
+                <Text
+                  style={{
+                    color: '#2196F3',
+                    fontWeight: 'bold',
+                    fontSize: 30,
+                  }}
+                >
+                  ⓘ
+                </Text>
+              </TouchableOpacity>
+            ) : null}
+          </View>
         ) : null}
 
         <View style={styles.table}>
@@ -223,36 +240,28 @@ export default function ProductoScreen() {
             ? [
                 [
                   'Energía (Calorías)',
-                  healthySuggestion.nutriments['energy_100g'] + ' kJ',
-                  '(' +
-                    healthySuggestion.nutriments['energy-kcal_100g'] +
+                  healthyNutriments['energy_100g'],
+                  'kJ (' +
+                    (healthyNutriments['energy-kcal_100g'] ?? '-') +
                     ' kcal)',
                 ],
-                ['Grasa', healthySuggestion.nutriments['fat_100g'], 'g'],
+                ['Grasa', healthyNutriments['fat_100g'], 'g'],
                 [
                   'Grasa Saturada',
-                  healthySuggestion.nutriments['saturated-fat_100g'],
+                  healthyNutriments['saturated-fat_100g'],
                   'g',
                 ],
-                [
-                  'Carbohidratos',
-                  healthySuggestion.nutriments['carbohydrates_100g'],
-                  'g',
-                ],
-                ['Azúcares', healthySuggestion.nutriments['sugars_100g'], 'g'],
-                ['Fibra', healthySuggestion.nutriments['fiber_100g'], 'g'],
-                [
-                  'Proteínas',
-                  healthySuggestion.nutriments['proteins_100g'],
-                  'g',
-                ],
-                ['Sal', healthySuggestion.nutriments['salt_100g'], 'g'],
+                ['Carbohidratos', healthyNutriments['carbohydrates_100g'], 'g'],
+                ['Azúcares', healthyNutriments['sugars_100g'], 'g'],
+                ['Fibra', healthyNutriments['fiber_100g'], 'g'],
+                ['Proteínas', healthyNutriments['proteins_100g'], 'g'],
+                ['Sal', healthyNutriments['salt_100g'], 'g'],
               ]
             : [
                 [
                   'Energía (Calorías)',
-                  nutriments['energy_100g'] + ' kJ',
-                  '(' + nutriments['energy-kcal_100g'] + ' kcal)',
+                  nutriments['energy_100g'],
+                  'kJ (' + (nutriments['energy-kcal_100g'] ?? '-') + ' kcal)',
                 ],
                 ['Grasa', nutriments['fat_100g'], 'g'],
                 ['Grasa Saturada', nutriments['saturated-fat_100g'], 'g'],
@@ -269,7 +278,12 @@ export default function ProductoScreen() {
                 {value !== null &&
                 value !== undefined &&
                 String(value).trim() !== ''
-                  ? `${value} ${unit}`
+                  ? // Si la fila es Energía, mostramos los dos valores
+                    label === 'Energía (Calorías)'
+                    ? `${value} kJ (${
+                        healthyNutriments['energy-kcal_100g'] ?? '-'
+                      } kcal)`
+                    : `${value} ${unit}`
                   : '-'}
               </Text>
             </View>
@@ -301,17 +315,17 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   title: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 1,
     marginTop: 0,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 15,
+    fontSize: 12,
     fontWeight: 'bold',
     marginTop: 0,
-    marginBottom: 5,
+    marginBottom: 1,
     color: '#4caf50',
     textAlign: 'center',
   },
@@ -334,7 +348,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 10,
   },
   cell: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#333',
     paddingHorizontal: 4,
   },

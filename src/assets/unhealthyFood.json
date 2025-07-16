@@ -1,7 +1,7 @@
 [
   {
     "code": "7861024623902",
-    "product_name": "Coca-Cola Sin Calorías 2L",
+    "product_name": "Coca-Cola Sin Calorías 2LLLLLLLLLL",
     "image_url": "",
     "nutriments": {
       "energy_100g": "0",
@@ -30,5 +30,22 @@
       "proteins_100g": "0",
       "salt_100g": "0"
     }
+  },
+  {
+    "code": "7801610002193",
+    "product_name": "Fanta Sabor Naranja",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "84",
+      "energy-kcal_100g": "20",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "4.9",
+      "sugars_100g": "4.9",
+      "fiber_100g": "0",
+      "proteins_100g": "0",
+      "salt_100g": "0.0625"
+    },
+    "comment": ""
   }
 ]

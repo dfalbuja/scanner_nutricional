@@ -11,7 +11,7 @@ export async function fetchProductByBarcode(barcode: string) {
       }
     );
 
-    console.log('PRODUCT STATUS::::::', response.data.status);
+    // console.log('PRODUCT STATUS::::::', response.data.status);
 
     if (response.data.status === 1) return response.data.product;
     else return null;
