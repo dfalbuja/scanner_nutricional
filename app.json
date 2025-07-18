@@ -4,6 +4,19 @@
       "eas": {
         "projectId": "9c35610e-6214-45bb-af33-5101b357c215"
       }
-    }
+    },
+    "android": {
+      "package": "com.bdxx.appnutricional"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow App Nutricional to access your camera",
+          "microphonePermission": "Allow App Nutricional to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ]
   }
 }
