@@ -287,5 +287,90 @@
       "salt_100g": "5.76"
     },
     "comment": "Productos bajos en calorías y sin azúcares simples, adecuados para postres en dietas hipocalóricas o para personas con diabetes. Aunque no aportan nutrientes esenciales, pueden ser parte de una alimentación balanceada si se consumen con moderación."
+  },
+  {
+    "code": "8412042502398",
+    "product_name": "Agua Mineral Natural - Mondariz",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "0",
+      "energy-kcal_100g": "0",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "0",
+      "sugars_100g": "0",
+      "fiber_100g": "0",
+      "proteins_100g": "0",
+      "salt_100g": "0"
+    },
+    "comment": "La opción sugerida no tiene azúcares añadidos ni calorías, lo que la hace ideal para reducir la ingesta de azúcares simples y evitar picos glucémicos."
+  },
+  {
+    "code": "8436048721270",
+    "product_name": "Tesoro Natural Agua de Coco 100% Natural",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "88",
+      "energy-kcal_100g": "21",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "5.2",
+      "sugars_100g": "5",
+      "fiber_100g": "0",
+      "proteins_100g": "0",
+      "salt_100g": "0.075"
+    },
+    "comment": "Gatorade contiene unos 6 g de azúcar por cada 100 ml. El agua de coco aporta electrolitos naturales sin azúcares añadidos (si es natural), por lo que es una excelente alternativa hidratante."
+  },
+  {
+    "code": "7861042578345",
+    "product_name": "Triangulitos de maíz queso",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "2138",
+      "energy-kcal_100g": "511",
+      "fat_100g": "35.7",
+      "saturated-fat_100g": "15.7",
+      "carbohydrates_100g": "47.5",
+      "sugars_100g": "0.1",
+      "fiber_100g": "0",
+      "proteins_100g": "5",
+      "salt_100g": "0.625"
+    },
+    "comment": "Los nachos originales pueden ser una mejor opción frente a snacks ultra procesados, ya que están hechos a base de maíz, lo que aporta energía y algo de fibra. Es importante cuidar las porciones y acompañarlos con opciones saludables como guacamole o pico de gallo."
+  },
+  {
+    "code": "7868000800159",
+    "product_name": "Pop Snacks Chips de Papa Sabor Natural",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "1465",
+      "energy-kcal_100g": "350",
+      "fat_100g": "0",
+      "saturated-fat_100g": "0",
+      "carbohydrates_100g": "85",
+      "sugars_100g": "0",
+      "fiber_100g": "0",
+      "proteins_100g": "5",
+      "salt_100g": "1.375"
+    },
+    "comment": "Esta alternativa es ideal para quienes buscan opciones más saludables frente a los snacks ultraprocesados. Al ser chips naturales, suelen tener menos aditivos, grasas saturadas y sodio, lo que los convierte en una mejor elección para personas que cuidan su salud cardiovascular o siguen una alimentación más limpia. Aun así, es importante revisar su contenido de sal o aceites añadidos."
+  },
+  {
+    "code": "7707699952421",
+    "product_name": "Monterojo Mezcla Andina Lima-Limón",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "2065",
+      "energy-kcal_100g": "494",
+      "fat_100g": "25",
+      "saturated-fat_100g": "4.2",
+      "carbohydrates_100g": "62",
+      "sugars_100g": "0.53",
+      "fiber_100g": "2.2",
+      "proteins_100g": "4.4",
+      "salt_100g": "0.6"
+    },
+    "comment": "Snacks bajos en calorías y sin azúcares simples, adecuados para dietas hipocalóricas o personas con diabetes. Aunque no siempre aportan nutrientes clave, pueden complementar una alimentación equilibrada si se consumen con moderación."
   }
 ]

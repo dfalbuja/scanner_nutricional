@@ -20,6 +20,11 @@ const imageMap: Record<string, any> = {
   '7861024621465': require('./images/7861024621465.png'),
   '8410132026382': require('./images/8410132026382.png'),
   '0000000000005': require('./images/0000000000005.png'),
+  '8412042502398': require('./images/8412042502398.png'),
+  '8436048721270': require('./images/8436048721270.png'),
+  '7861042578345': require('./images/7861042578345.png'),
+  '7868000800159': require('./images/7868000800159.png'),
+  '7707699952421': require('./images/7707699952421.png'),
 };
 
 export default imageMap;
