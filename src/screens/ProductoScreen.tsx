@@ -25,16 +25,75 @@ export default function ProductoScreen() {
 
   const [product, setProduct] = useState<any | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [trialExpired, setTrialExpired] = useState(false);
 
   useEffect(() => {
     const loadProduct = async () => {
+      // Verifica la fecha actual
+      const today = new Date();
+      const trialEnd = new Date('2025-07-24');
+
+      if (today >= trialEnd) {
+        setTrialExpired(true);
+        return;
+      }
+
       let result = unhealthyFood.find((p) => p.code === code);
       if (!result) result = await fetchProductByBarcode(code);
 
       setProduct(result);
     };
+
     loadProduct();
   }, [code]);
+
+  if (trialExpired) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Modal visible={true} transparent animationType="fade">
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: 'rgba(0,0,0,0.3)',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: 'white',
+                padding: 20,
+                borderRadius: 10,
+                maxWidth: '80%',
+                alignItems: 'center',
+              }}
+            >
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>
+                Periodo de prueba finalizado
+              </Text>
+              <Text style={{ marginBottom: 20, textAlign: 'center' }}>
+                Esta aplicación ya no se encuentra disponible. El periodo de
+                prueba terminó el 24 de julio de 2025.
+              </Text>
+              <Pressable
+                style={{
+                  backgroundColor: '#2196F3',
+                  borderRadius: 5,
+                  paddingVertical: 8,
+                  paddingHorizontal: 20,
+                }}
+                onPress={() => {}}
+              >
+                <Text style={{ color: 'white', fontWeight: 'bold' }}>
+                  Cerrar
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+      </View>
+    );
+  }
 
   if (!product) {
     return (
