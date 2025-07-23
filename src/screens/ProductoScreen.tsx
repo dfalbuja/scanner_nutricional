@@ -31,7 +31,7 @@ export default function ProductoScreen() {
     const loadProduct = async () => {
       // Verifica la fecha actual
       const today = new Date();
-      const trialEnd = new Date('2025-07-24');
+      const trialEnd = new Date('2030-07-24');
 
       if (today >= trialEnd) {
         setTrialExpired(true);
@@ -73,7 +73,7 @@ export default function ProductoScreen() {
               </Text>
               <Text style={{ marginBottom: 20, textAlign: 'center' }}>
                 Esta aplicación ya no se encuentra disponible. El periodo de
-                prueba terminó el 24 de julio de 2025.
+                prueba terminó.
               </Text>
               <Pressable
                 style={{

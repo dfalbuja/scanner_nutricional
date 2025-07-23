@@ -372,5 +372,22 @@
       "salt_100g": "0.6"
     },
     "comment": "Snacks bajos en calorías y sin azúcares simples, adecuados para dietas hipocalóricas o personas con diabetes. Aunque no siempre aportan nutrientes clave, pueden complementar una alimentación equilibrada si se consumen con moderación."
+  },
+  {
+    "code": "0000000006",
+    "product_name": "AntiuXixona",
+    "image_url": "",
+    "nutriments": {
+      "energy_100g": "2304",
+      "energy-kcal_100g": "553",
+      "fat_100g": "42",
+      "saturated-fat_100g": "3.7",
+      "carbohydrates_100g": "7.3",
+      "sugars_100g": "2.6",
+      "fiber_100g": "11",
+      "proteins_100g": "28",
+      "salt_100g": "0.01"
+    },
+    "comment": "Esta opción es más saludable si se compara con otros turrones tradicionales, ya que al contener almendras aporta grasas saludables (ácidos grasos monoinsaturados), fibra y proteína vegetal. Sin embargo, es importante revisar el contenido de azúcares añadidos. Aun siendo un turrón, es preferible al incorporar frutos secos en lugar de solo azúcar y grasas saturadas."
   }
 ]
